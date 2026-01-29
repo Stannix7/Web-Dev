@@ -40,6 +40,9 @@ function calculate(income,deductions,credits){
     }
     //deduct tax credits from final owing amount
     total_tax-= credits;
+    if (total_tax < 0){
+        total_tax = 0;
+    }
 
     //updates the display total to fixed decimal points
     $("#total").value = total_tax.toFixed(2);
@@ -124,6 +127,15 @@ const deleteHistory = () => {
 
 //function arrow expression, no perameters
 //clears the input fields and resets all to what they should be
+const clearAlert = () => {
+    if (confirm("Clear Input?")){
+        clearTxt();
+    }
+    if (confirm("Delete History?")){
+        deleteHistory();
+    }
+}
+
 const clearTxt = () => {
     $("#income").value = '';
     $("#deductions").value = '';
@@ -137,7 +149,7 @@ const clearTxt = () => {
 //function that setsup all the buttons on the page
 const btnSetup = () => {
     $("#calculate").addEventListener("click", processEntry);
-    $("#clear").addEventListener("click", clearTxt);
+    $("#clear").addEventListener("click", clearAlert);
     $("#deleteHist").addEventListener("click", deleteHistory);
 };
 
