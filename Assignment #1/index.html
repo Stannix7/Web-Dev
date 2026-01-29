@@ -1,0 +1,37 @@
+<!-- Andrew Stannix and Hayden Plishka; Assignment 1 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sales Tax Calculator</title>
+    <link rel="stylesheet" href="income_tax.css" />
+</head>
+<body>
+    <main>
+        <h1>Income Tax Calculator</h1>
+        <div>
+            <label for="income">Enter taxable income:</label>
+            <input type="text" id="income" >
+        </div>
+        <div> <!-- Donations to reduce taxable income-->
+            <label for="donations">Enter total eligible donations:</label>
+            <input type="text" id="donations" >
+        </div>
+        <div> <!-- Old Age Security for over 65 years old-->
+            <label for="old_age">Enter age for Old Age Security benefit:</label>
+            <input type="text" id="old_age" >
+        </div>
+        <div>
+            <label for="taxes">Taxes owed:</label>
+            <input type="text" id="taxes" disabled >
+        </div>
+        <div>
+            <label></label>
+            <input type="button" id="calculate" value="Calculate" >
+            <input type="button" id="clear" value="Clear" >
+        </div>
+    </main>
+    <script src="income_tax.js"></script>
+</body>
+</html>
