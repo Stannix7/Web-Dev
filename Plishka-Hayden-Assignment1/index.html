@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="income_tax.css">
+</head>
+<body>
+    <main>
+        <h1>Income Tax Calculator</h1>
+        <form>
+            <div>
+                <label for="income">Enter taxable income:</label>
+                <label><input type="text" id="income" name="income" placeholder="ex. 50000"></label>
+                <span>*</span>
+            </div>
+            <div>
+                <label for="deductions">Income tax deductions:</label>
+                <label><input type="text" id="deductions" name="deductions" placeholder="optional"></label>
+            </div>
+            <div>
+                <label for="credits">Final tax credits:</label>
+                <label><input type="text" id="credits" name="credits" placeholder="optional"></label>
+            </div>
+            <div>
+                <label for="total">Income tax owed:</label>
+                <label><input type="text" placeholder="Press Calculate" id="total" name="total" disabled></label>
+            </div>
+            <div>
+                <label><input type="button" id="deleteHist" value="Delete History"></label>
+                <input type="button" id="calculate" value="Calculate">
+                <input type="button" id="clear" value="Reset">
+            </div>
+            <p>History</p>
+            <div id="history">
+            </div>
+        </form>
+        <script src="income_tax.js"></script>
+    </main>
+</body>
+</html>
+    
