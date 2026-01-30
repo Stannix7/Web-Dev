@@ -1,6 +1,6 @@
 /* Assignment #1
-Hayden Plishka
-Andrew Stannix */
+Hayden Plishka #000383577
+Andrew Stannix #000295893 */
 
 "use strict";
 
