@@ -1,3 +1,7 @@
+/* Assignment #1
+Hayden Plishka
+Andrew Stannix */
+
 "use strict";
 
 const $ = selector => document.querySelector(selector);
