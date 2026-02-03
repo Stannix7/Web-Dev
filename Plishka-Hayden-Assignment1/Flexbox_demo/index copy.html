@@ -1,0 +1,131 @@
+<!DOCTYPE html> <!-- Use HTML5 so modern CSS features like Flexbox behave consistently -->
+<html lang="en"> <!-- Document language is English (helps screen readers/SEO) -->
+<head>
+  <meta charset="UTF-8"> <!-- Proper text encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile-friendly scaling -->
+  <title>Flexbox Café — Lecture 9 Demo</title> <!-- Browser tab title -->
+  <link rel="stylesheet" href="styles.css"> <!-- External stylesheet -->
+</head>
+
+<body> <!-- Visible page content starts -->
+
+  <!-- ========= 1) FLEX CONTAINER: NAV BAR (flex-direction: row) ========= -->
+  <header class="nav"> <!-- This header becomes a flex container via CSS -->
+    <div class="logo">☕ Flexbox Café</div> <!-- A brand/logo block (flex item) -->
+    <nav class="nav-links"> <!-- Another flex item that is itself a flex container (nested flex) -->
+      <a href="#menu">Menu</a>     <!-- Flex item inside .nav-links -->
+      <a href="#specials">Specials</a> <!-- Flex item -->
+      <a href="#about">About</a>   <!-- Flex item -->
+    </nav>
+  </header>
+
+  <!-- ========= 2) AXES DEMO: HORIZONTAL vs VERTICAL ========= -->
+  <section class="axes" id="about"> <!-- Section wrapper -->
+    <h2>Main vs Cross Axis</h2> <!-- Heading -->
+    <div class="row-demo"> <!-- Flex container laid out in a row (main axis = horizontal) -->
+      <div class="box">Row 1</div> <!-- Flex item -->
+      <div class="box">Row 2</div> <!-- Flex item -->
+      <div class="box">Row 3</div> <!-- Flex item -->
+    </div>
+    <div class="col-demo"> <!-- Flex container laid out in a column (main axis = vertical) -->
+      <div class="box">Col 1</div> <!-- Flex item -->
+      <div class="box">Col 2</div> <!-- Flex item -->
+      <div class="box">Col 3</div> <!-- Flex item -->
+    </div>
+    <p class="explain">
+      In <strong>row</strong> direction, items flow left→right (main axis = horizontal) and cross axis is vertical.
+      In <strong>column</strong> direction, items flow top→bottom (main axis = vertical) and cross axis is horizontal.
+    </p>
+  </section>
+
+  <!-- ========= 3) WRAPPING + MIN WIDTH with flex-basis (via flex shorthand) ========= -->
+  <section class="menu" id="menu"> <!-- Menu grid using flex-wrap -->
+    <h2>Menu (flex-wrap)</h2> <!-- Title -->
+    <div class="cards"> <!-- Flex container that wraps into new rows as needed -->
+      <!-- Each card is a flex item with a minimum width using the flex shorthand -->
+      <article class="card flex-15">Espresso</article>     <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Americano</article>    <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Latte</article>        <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Cappuccino</article>   <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Mocha</article>        <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Flat White</article>   <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Macchiato</article>    <!-- flex: 1 1 15rem -->
+      <article class="card flex-15">Iced Coffee</article>  <!-- flex: 1 1 15rem -->
+    </div>
+    <p class="explain">
+      The container uses <code>flex-wrap: wrap</code> to move items onto new rows,
+      and each card uses <code>flex: 1 1 15rem</code> so it won’t shrink below ~15rem.
+      Odd items stretch to fill the last row.
+    </p>
+  </section>
+
+  <!-- ========= 4) FLEX SIZING: DIFFERENT PROPORTIONS (flex-grow) ========= -->
+  <section class="sizing" id="specials"> <!-- Show differing flex growth -->
+    <h2>Flexible Sizing (proportions)</h2> <!-- Title -->
+    <div class="sizes"> <!-- Flex container -->
+      <!-- If total is 1+1+2 = 4, widths are 1/4, 1/4, 2/4 respectively -->
+      <div class="size item-1">flex: 1</div> <!-- Will take 1 part -->
+      <div class="size item-1b">flex: 1</div> <!-- Will take 1 part -->
+      <div class="size item-2">flex: 2</div> <!-- Will take 2 parts -->
+    </div>
+    <p class="explain">
+      Flex items share space by ratio: with values 1,1,2 → items get 25%, 25%, 50% of remaining space.
+    </p>
+  </section>
+
+  <!-- ========= 5) ALIGNMENT: justify-content & align-items + align-self ========= -->
+  <section class="align">
+    <h2>Alignment (main vs cross axis)</h2>
+    <div class="align-demo"> <!-- Flex container where we’ll demonstrate alignment -->
+      <div class="pill">A</div> <!-- Flex item -->
+      <div class="pill self-end">B (align-self: flex-end)</div> <!-- Overrides container's cross-axis alignment -->
+      <div class="pill tall">C</div> <!-- Taller item to show cross-axis behavior -->
+      <div class="pill">D</div> <!-- Flex item -->
+    </div>
+    <p class="explain">
+      The container uses <code>justify-content</code> to space items along the main axis and
+      <code>align-items</code> to align them on the cross axis. One item overrides with <code>align-self</code>.
+    </p>
+  </section>
+
+  <!-- ========= 6) ORDER: VISUAL REORDERING WITHOUT CHANGING HTML ========= -->
+  <section class="ordering">
+    <h2>Order (visual reordering)</h2>
+    <div class="order-row"> <!-- Flex container -->
+      <div class="order-box order-2">First in HTML, <em>order: 2</em></div>  <!-- Will appear third -->
+      <div class="order-box order--1">Second in HTML, <em>order: -1</em></div> <!-- Will appear first -->
+      <div class="order-box order-1">Third in HTML, <em>order: 1</em></div>   <!-- Will appear second -->
+    </div>
+    <p class="explain">
+      All items default to <code>order: 0</code>. Lower numbers appear earlier. Here: -1 → 1st, 1 → 2nd, 2 → 3rd.
+    </p>
+  </section>
+
+  <!-- ========= 7) NESTED FLEX: CARD with header/body/footer all using flex ========= -->
+  <section class="nested">
+    <h2>Nested Flexbox (flex inside flex)</h2>
+    <div class="product"> <!-- Outer card is a flex container (column) -->
+      <header class="product-head"> <!-- Flex row: title + price aligned -->
+        <h3 class="product-title">Sampler Box</h3>
+        <div class="price">$18</div>
+      </header>
+      <div class="product-features"> <!-- Flex row that wraps chips -->
+        <span class="chip">4 drinks</span>
+        <span class="chip">2 pastries</span>
+        <span class="chip">Decaf option</span>
+        <span class="chip">Oat milk</span>
+        <span class="chip">Gluten-free</span>
+      </div>
+      <footer class="product-actions"> <!-- Flex row spaced apart -->
+        <button class="btn">Details</button>
+        <button class="btn primary">Add to Cart</button>
+      </footer>
+    </div>
+    <p class="explain">
+      Flex containers can be nested. Each area (head, features, actions) is also a flex container to align its children.
+    </p>
+  </section>
+
+  <footer class="site-footer">© 2025 Flexbox Café</footer> <!-- Simple footer -->
+</body>
+</html>

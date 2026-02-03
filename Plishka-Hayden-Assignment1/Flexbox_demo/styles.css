@@ -1,0 +1,110 @@
+/* ===== Base reset & fonts ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; } /* Predictable sizing + remove default gaps */
+body { font-family: Arial, sans-serif; line-height: 1.5; color: #222; background: #fafafa; padding-bottom: 48px; }
+
+/* Small helpers for headings and explanations */
+h2 { margin: 24px 0 12px; color: #0b5ed7;}
+.explain { margin: 8px 0 24px; color: #555; }
+
+/* ===== 1) NAV BAR (flex container) ===== */
+.nav {
+  display: flex;                /* Makes header a flex container */
+  justify-content: space-between; /* Push logo left, links right (main axis) */
+  align-items: center;          /* Center items vertically (cross axis) */
+  gap: 16px;                    /* Space between flex items */
+  padding: 12px 16px;           /* Inner spacing */
+  background: #333; color: #fff; border-bottom: 4px solid #ffcc66; /* Styles */
+}
+.logo { font-weight: bold; }
+.nav-links { display: flex; gap: 12px; } /* Nested flex container for the links */
+.nav-links a { color: #ffd28a; text-decoration: none; padding: 6px 8px; border-radius: 4px; }
+.nav-links a:hover { background: rgba(255,255,255,0.12); }
+
+/* ===== Section wrapper generic styling ===== */
+section { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+/* ===== 2) AXES DEMO ===== */
+.row-demo {
+  display: flex;              /* Flex container laid out in a row (default) */
+  gap: 8px;                   /* Space between items */
+  margin-bottom: 12px;
+}
+.col-demo {
+  display: flex;              /* Also a flex container... */
+  flex-direction: column;     /* ...but main axis is vertical now */
+  gap: 8px;
+}
+.box { background: #e6f0ff; padding: 12px; border: 1px solid #bcd3ff; border-radius: 6px; }
+
+/* ===== 3) WRAP + MIN WIDTH via flex shorthand ===== */
+.menu .cards {
+  display: flex;           /* Flex container for the cards */
+  flex-wrap: wrap;         /* Allow items to wrap to the next line (no horizontal scroll) */
+  gap: 12px;               /* Space between cards */
+}
+.card {
+  background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+/* flex: 1 1 15rem → grow:1 (share extra space), shrink:1 (shrink if needed), basis:15rem (min width) */
+.flex-15 { flex: 1 1 15rem; }
+
+/* ===== 4) FLEX SIZING (proportions) ===== */
+.sizes {
+  display: flex;    /* Lay items in a row and let them share space by ratio */
+  gap: 8px;
+}
+.size { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 12px; }
+.item-1  { flex: 1; }  /* Takes 1 share of remaining space */
+.item-1b { flex: 1; }  /* Also 1 share */
+.item-2  { flex: 2; }  /* Takes 2 shares → double the width of a flex:1 item */
+
+/* ===== 5) ALIGNMENT (justify-content / align-items / align-self) ===== */
+.align-demo {
+  display: flex;                 /* Flex container */
+  justify-content: space-around; /* Distribute items evenly on main axis */
+  align-items: center;           /* Align items on cross axis (center vertically here) */
+  gap: 8px; min-height: 120px;   /* Height so vertical alignment is visible */
+  background: #f7faff; border: 1px solid #d8e6ff; border-radius: 8px; padding: 12px;
+}
+.pill {
+  background: #0b5ed7; color: #fff; padding: 10px 14px; border-radius: 999px; min-width: 44px; text-align: center;
+}
+.pill.tall { padding: 24px 14px; }       /* Taller chip to show cross-axis effect */
+.self-end  { align-self: flex-end; }     /* Overrides container's align-items for this single item */
+
+/* ===== 6) ORDERING ===== */
+.order-row {
+  display: flex; gap: 8px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 12px;
+}
+.order-box { background: #ffe7ba; border: 1px solid #e3b86a; border-radius: 6px; padding: 10px; }
+.order--1 { order: -1; } /* Will appear first */
+.order-1  { order: 1;  } /* Will appear second (after -1 and 0) */
+.order-2  { order: 2;  } /* Will appear third  */
+
+/* ===== 7) NESTED FLEX: PRODUCT CARD ===== */
+.product {
+  display: flex;            /* Make outer card a flex container */
+  flex-direction: column;   /* Stack header, features, and actions vertically */
+  gap: 12px;                /* Space between internal rows */
+  background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.product-head {
+  display: flex; justify-content: space-between; align-items: baseline; /* Title left, price right */
+  gap: 12px; border-bottom: 1px dashed #ddd; padding-bottom: 8px;
+}
+.product-title { font-size: 1.1rem; }
+.price { font-weight: bold; color: #0b5ed7; }
+.product-features {
+  display: flex; flex-wrap: wrap; gap: 8px; /* Wrap chips if there are many */
+}
+.chip { background: #eef5ff; color: #0b5ed7; border: 1px solid #cfe1ff; border-radius: 999px; padding: 6px 10px; }
+.product-actions {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; /* Spread buttons */
+}
+.btn { background: #333; color: #fff; border: 0; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+.btn.primary { background: #0b5ed7; } /* Primary action style */
+
+/* ===== Footer ===== */
+.site-footer { text-align: center; color: #666; margin: 24px 0; }

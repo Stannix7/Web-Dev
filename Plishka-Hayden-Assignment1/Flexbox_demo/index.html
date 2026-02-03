@@ -1,0 +1,105 @@
+<!DOCTYPE html> <!-- Use HTML5 so modern CSS features like Flexbox behave consistently -->
+<html lang="en"> <!-- Document language is English (helps screen readers/SEO) -->
+<head>
+  <meta charset="UTF-8"> <!-- Proper text encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile-friendly scaling -->
+  <title>Flexbox Café — Lecture 9 Demo</title> <!-- Browser tab title -->
+  <link rel="stylesheet" href="styles.css"> <!-- External stylesheet -->
+</head>
+
+<body> <!-- Visible page content starts -->
+
+  <!-- ========= 1) FLEX CONTAINER: NAV BAR (flex-direction: row) ========= -->
+  <header class="nav"> <!-- This header becomes a flex container via CSS -->
+    <div class="logo">☕ Flexbox Café</div> <!-- A brand/logo block (flex item) -->
+    <nav class="nav-links"> <!-- Another flex item that is itself a flex container (nested flex) -->
+      <a href="#menu">Menu</a>     <!-- Flex item inside .nav-links -->
+      <a href="#specials">Specials</a> <!-- Flex item -->
+      <a href="#about">About</a>   <!-- Flex item -->
+    </nav>
+  </header>
+
+
+
+  <!-- ========= 7) NESTED FLEX: CARD with header/body/footer all using flex ========= -->
+  <section class="nested">
+    <h2>Income Tax Calculator</h2>
+    
+    <div class="product"> <!-- Outer card is a flex container (column) -->
+        <form>
+            <div>
+                <label for="income">Enter taxable income:</label>
+                <label><input type="text" id="income" name="income" placeholder="ex. 50000"></label>
+                <span>*</span>
+            </div>
+            <div>
+                <label for="deductions">Income tax deductions:</label>
+                <label><input type="text" id="deductions" name="deductions" placeholder="optional"></label>
+            </div>
+            <div>
+                <label for="credits">Final tax credits:</label>
+                <label><input type="text" id="credits" name="credits" placeholder="optional"></label>
+            </div>
+            <div>
+                <label for="total">Income tax owed:</label>
+                <label><input type="text" placeholder="Press Calculate" id="total" name="total" disabled></label>
+            </div>
+            <div>
+                <label></label>
+                <input type="button" id="calculate" value="Calculate">
+                <input type="button" id="clear" value="Reset">
+            </div>
+        </form>
+
+
+      <header class="product-head"> <!-- Flex row: title + price aligned -->
+        <h3 class="product-title">Sampler Box</h3>
+        <div class="price">$18</div>
+      </header>
+      <div class="product-features"> <!-- Flex row that wraps chips -->
+        <span class="chip">4 drinks</span>
+        <span class="chip">2 pastries</span>
+        <span class="chip">Decaf option</span>
+        <span class="chip">Oat milk</span>
+        <span class="chip">Gluten-free</span>
+      </div>
+      <footer class="product-actions"> <!-- Flex row spaced apart -->
+        <button class="btn">Details</button>
+        <button class="btn primary">Add to Cart</button>
+      </footer>
+    </div>
+    <p class="explain">
+      Flex containers can be nested. Each area (head, features, actions) is also a flex container to align its children.
+    </p>
+  </section>
+
+  <section class="nested">
+                <p>History</p>
+            <div id="history">
+            </div>
+    <h2>Nested Flexbox (flex inside flex)</h2>
+    <div class="product"> <!-- Outer card is a flex container (column) -->
+      <header class="product-head"> <!-- Flex row: title + price aligned -->
+        <h3 class="product-title">Sampler Box</h3>
+        <div class="price">$18</div>
+      </header>
+      <div class="product-features"> <!-- Flex row that wraps chips -->
+        <span class="chip">4 drinks</span>
+        <span class="chip">2 pastries</span>
+        <span class="chip">Decaf option</span>
+        <span class="chip">Oat milk</span>
+        <span class="chip">Gluten-free</span>
+      </div>
+      <footer class="product-actions"> <!-- Flex row spaced apart -->
+        <button class="btn">Details</button>
+        <button class="btn primary">Add to Cart</button>
+      </footer>
+    </div>
+    <p class="explain">
+      Flex containers can be nested. Each area (head, features, actions) is also a flex container to align its children.
+    </p>
+  </section>
+
+  <footer class="site-footer">Group Assignment 1<br>© 2026 Hayden Plishka | 000383577<br>© 2026 Andrew Stanix | #########</footer> <!-- Simple footer -->
+</body>
+</html>
