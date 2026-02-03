@@ -1,3 +1,7 @@
+/* Assignment #1
+Hayden Plishka #000383577
+Andrew Stannix #000295893 */
+
 "use strict";
 
 const $ = selector => document.querySelector(selector);
